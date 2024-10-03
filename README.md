@@ -110,6 +110,6 @@ Create a ```GET``` endpoint that retrieves all patients by their first name
 
 Create a ```GET``` endpoint that retrieves all providers by their specialty
 
-<br>
+<br> g
 
 ## NOTE: Do not fork this repository

@@ -70,7 +70,7 @@ app.get('/patient_firstname', (req, res) => {
             res.status(500).send('internal server error');
         }
         res.send(results);
-    })
+    });
 });
 
 app.get('/providers_speciality', (req, res) => {
@@ -82,7 +82,7 @@ app.get('/providers_speciality', (req, res) => {
     });
 
 
-})
+});
 
 // <Your code goes up there
 
