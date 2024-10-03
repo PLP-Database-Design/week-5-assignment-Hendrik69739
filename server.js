@@ -40,7 +40,7 @@ app.set('views', __dirname + '/views');
 
 // Data is a file found in the Views folder 
 
-app.get('/data', (req,res) => {
+app.get('/patients', (req,res) => {
 
     // Retrieve data from database 
     db.query('SELECT * FROM patients', (err, results) =>{
@@ -49,10 +49,40 @@ app.get('/data', (req,res) => {
             res.status(500).send('Error Retrieving data')
         }else {
             //Display the records to the browser 
-            res.render('data', {results: results});
+            res.render('data', {results});     
         }
     });
 });
+
+app.get('/providers', (req, res) => {
+
+    db.query('SELECT * FROM providers', (err, results) => {
+        if(err){
+            res.status(500).send('internal error server');
+        }
+        res.send(results);
+    })
+})
+
+app.get('/patient_firstname', (req, res) => {
+    db.query('SELECT * FROM patients ORDER BY first_name DESC', (err, results) => {
+        if(err){
+            res.status(500).send('internal server error');
+        }
+        res.send(results);
+    })
+});
+
+app.get('/providers_speciality', (req, res) => {
+    db.query('SELECT * FROM providers ORDER BY provider_specialty', (err, results) => {
+        if(err){
+            res.status(500).send('internal server error');
+        }
+        res.send(results);
+    });
+
+
+})
 
 // <Your code goes up there
 
